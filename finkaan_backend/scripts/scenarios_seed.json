@@ -1,0 +1,722 @@
+[
+  {
+    "id": 1,
+    "xp": 100,
+    "title": "El Primer Sueldo",
+    "emoji": "💵",
+    "description": "Acaban de depositar tu primer sueldo. ¿Cómo lo administras?",
+    "difficulty": "Fácil",
+    "color": "green",
+    "concepts": ["presupuesto", "ahorro"],
+    "steps": [
+      {
+        "narrative": "Son las 9 AM del viernes y tu banco te notifica: llegó tu primer sueldo de $8,000.",
+        "question": "¿Qué es lo primero que haces?",
+        "aiGood": "Apartar el ahorro antes de gastar es el hábito más poderoso en finanzas personales. Se llama 'pagarte primero a ti mismo'.",
+        "aiBad": "Gastar antes de ahorrar deja lo que sobra al azar. Casi nunca sobra nada al final del mes.",
+        "options": [
+          {"id": "a", "text": "Aparto 20% para ahorros y el resto para gastos", "delta": 30, "isGood": true},
+          {"id": "b", "text": "Pago primero todas mis deudas pendientes", "delta": 20, "isGood": true},
+          {"id": "c", "text": "Me doy un gusto, me lo merezco", "delta": -10, "isGood": false},
+          {"id": "d", "text": "No hago nada, espero a ver qué necesito", "delta": -5, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Decidiste apartar $1,600 de ahorro. Ahora tienes $6,400 disponibles para el mes.",
+        "question": "¿Dónde guardas tus ahorros?",
+        "aiGood": "Una cuenta de ahorro separada reduce la tentación de gastar ese dinero. La fricción de transferir es tu aliada.",
+        "aiBad": "Mezclar ahorros con gastos diarios hace casi imposible no tocarlos cuando tienes antojo.",
+        "options": [
+          {"id": "a", "text": "Cuenta de ahorro separada en otro banco", "delta": 30, "isGood": true},
+          {"id": "b", "text": "En la misma cuenta que uso para gastos", "delta": -10, "isGood": false},
+          {"id": "c", "text": "En efectivo en casa", "delta": -15, "isGood": false},
+          {"id": "d", "text": "En una inversión de bajo riesgo (CETES, fondo)", "delta": 35, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "xp": 120,
+    "title": "La Tarjeta de Crédito",
+    "emoji": "💳",
+    "description": "Te ofrecen tu primera tarjeta de crédito. ¿La usas bien?",
+    "difficulty": "Fácil",
+    "color": "amber",
+    "concepts": ["crédito", "intereses", "deuda"],
+    "steps": [
+      {
+        "narrative": "El banco te aprueba una tarjeta con límite de $15,000 y 36% de interés anual.",
+        "question": "¿Cómo la usas el primer mes?",
+        "aiGood": "Usar la tarjeta y pagar el total cada mes construye historial de crédito sin pagar ni un peso de intereses.",
+        "aiBad": "Pagar solo el mínimo puede triplicar el costo real de lo que compraste. A 36% anual, la deuda crece rapidísimo.",
+        "options": [
+          {"id": "a", "text": "La uso solo para emergencias y la pago completa", "delta": 35, "isGood": true},
+          {"id": "b", "text": "La uso para gastos fijos y pago el total al corte", "delta": 30, "isGood": true},
+          {"id": "c", "text": "Compro lo que quiero y pago el mínimo", "delta": -25, "isGood": false},
+          {"id": "d", "text": "No la uso por miedo a endeudarse", "delta": -5, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Llegó tu estado de cuenta: debes $4,200. Tienes el dinero para pagarlo completo.",
+        "question": "¿Cuánto pagas?",
+        "aiGood": "Pagar el total evita intereses y mejora tu score de crédito. Es la única forma correcta de usar tarjeta.",
+        "aiBad": "Cada peso que no pagas genera intereses del 3% mensual. En un año puedes deber el doble.",
+        "options": [
+          {"id": "a", "text": "El total: $4,200", "delta": 40, "isGood": true},
+          {"id": "b", "text": "El pago para no generar intereses", "delta": 35, "isGood": true},
+          {"id": "c", "text": "El mínimo requerido ($250)", "delta": -30, "isGood": false},
+          {"id": "d", "text": "La mitad, $2,100", "delta": -15, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "xp": 150,
+    "title": "Fondo de Emergencia",
+    "emoji": "🛡️",
+    "description": "Tu coche se descompone inesperadamente. ¿Estás preparado?",
+    "difficulty": "Medio",
+    "color": "accent",
+    "concepts": ["fondo de emergencia", "liquidez", "imprevistos"],
+    "steps": [
+      {
+        "narrative": "El mecánico te dice que la reparación cuesta $4,500 y la necesitas esta semana.",
+        "question": "¿Cómo cubres el gasto?",
+        "aiGood": "Para eso existe el fondo de emergencia: resolver imprevistos sin endeudarte ni desestabilizarte.",
+        "aiBad": "La tarjeta con 36% de interés puede convertir $4,500 en $6,000 o más si tardas en pagarla.",
+        "options": [
+          {"id": "a", "text": "Uso mi fondo de emergencia, para eso lo tengo", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Pido prestado a familia y lo pago en un mes", "delta": 15, "isGood": true},
+          {"id": "c", "text": "Lo cargo a la tarjeta y pago el mínimo", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Saco del dinero del mes aunque quede sin nada", "delta": -10, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Resolviste la emergencia. Tu fondo quedó en $0.",
+        "question": "¿Cómo reconstruyes el fondo de emergencia?",
+        "aiGood": "Reconstruir el fondo es tan urgente como pagar cualquier deuda. Sin él, el próximo imprevisto te tumba.",
+        "aiBad": "Sin fondo de emergencia eres vulnerable. El próximo imprevisto te obligará a endeudarte.",
+        "options": [
+          {"id": "a", "text": "Aparto 10% extra de mi sueldo hasta recuperarlo", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Lo ignoro por ahora, hay otras prioridades", "delta": -20, "isGood": false},
+          {"id": "c", "text": "Vendo cosas que ya no uso para reconstruirlo rápido", "delta": 25, "isGood": true},
+          {"id": "d", "text": "Reduzco gastos no esenciales temporalmente", "delta": 30, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "xp": 130,
+    "title": "La Oferta Irresistible",
+    "emoji": "🛍️",
+    "description": "Hay una venta increíble y quieres comprar algo que no planeabas.",
+    "difficulty": "Fácil",
+    "color": "pink",
+    "concepts": ["presupuesto", "compras impulsivas", "necesidad vs deseo"],
+    "steps": [
+      {
+        "narrative": "Tus tenis favoritos bajaron de $3,200 a $1,800. Solo hoy. No estaban en tu presupuesto.",
+        "question": "¿Qué haces?",
+        "aiGood": "Esperar 48 horas antes de comprar algo no planeado elimina el 80% de las compras impulsivas.",
+        "aiBad": "Un descuento no es un ahorro si no ibas a comprar el producto. Gastas $1,800, no 'ahorras' $1,400.",
+        "options": [
+          {"id": "a", "text": "No compro, no estaba en mi presupuesto", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Espero 48 horas y si sigo queriéndolos, evalúo", "delta": 30, "isGood": true},
+          {"id": "c", "text": "Los compro, ¡es un super precio!", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Los compro a meses sin intereses", "delta": -15, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Decidiste esperarte. Los tenis se agotaron. Te sientes frustrado.",
+        "question": "¿Cómo manejas esa frustración financieramente?",
+        "aiGood": "Incluir 'gastos de gusto' en tu presupuesto te permite darte lujos sin culpa ni desequilibrio.",
+        "aiBad": "Compensar la frustración comprando otras cosas crea un ciclo de gasto emocional difícil de romper.",
+        "options": [
+          {"id": "a", "text": "Lo supero y agrego 'gustos' a mi próximo presupuesto", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Me compro algo más pequeño para 'compensar'", "delta": -15, "isGood": false},
+          {"id": "c", "text": "Nada, el dinero sigue en mi bolsillo", "delta": 25, "isGood": true},
+          {"id": "d", "text": "Busco los mismos tenis usados a mejor precio", "delta": 20, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "xp": 180,
+    "title": "Invertir por Primera Vez",
+    "emoji": "📈",
+    "description": "Tienes $10,000 ahorrados y quieres hacerlos crecer. ¿Cómo inviertes?",
+    "difficulty": "Medio",
+    "color": "blue",
+    "concepts": ["inversión", "riesgo", "rendimiento", "CETES"],
+    "steps": [
+      {
+        "narrative": "Tienes $10,000 que no necesitarás en al menos 6 meses. Un amigo te dice que metas todo a una criptomoneda 'segura'.",
+        "question": "¿Cómo decides dónde invertir?",
+        "aiGood": "Diversificar y empezar con inversiones de bajo riesgo es clave para principiantes. Nunca metas todo en un activo.",
+        "aiBad": "Concentrar todo en cripto, especialmente por recomendación de alguien sin experiencia, es especulación pura, no inversión.",
+        "options": [
+          {"id": "a", "text": "Investigo opciones: CETES, fondos indexados, cripto. Diversifico.", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Meto todo a CETES, es lo más seguro", "delta": 25, "isGood": true},
+          {"id": "c", "text": "Meto todo a la cripto que recomienda mi amigo", "delta": -30, "isGood": false},
+          {"id": "d", "text": "No invierto, el ahorro en banco es suficiente", "delta": -10, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Invertiste $7,000 en CETES y $3,000 en un fondo indexado. A los 3 meses, el fondo bajó 8%.",
+        "question": "¿Qué haces ante la caída del fondo?",
+        "aiGood": "Las caídas temporales en fondos indexados son normales. Vender en pánico convierte pérdidas temporales en permanentes.",
+        "aiBad": "Vender cuando baja garantiza la pérdida. Los mercados históricamente se recuperan si tienes paciencia.",
+        "options": [
+          {"id": "a", "text": "No hago nada, es una caída temporal normal", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Aprovecho para comprar más, está más barato", "delta": 40, "isGood": true},
+          {"id": "c", "text": "Vendo todo antes de que baje más", "delta": -25, "isGood": false},
+          {"id": "d", "text": "Muevo todo a CETES para 'protegerme'", "delta": -10, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "xp": 160,
+    "title": "El Préstamo Personal",
+    "emoji": "🤝",
+    "description": "Necesitas dinero rápido. Te ofrecen varias opciones de préstamo.",
+    "difficulty": "Medio",
+    "color": "orange",
+    "concepts": ["préstamos", "tasa de interés", "CAT", "deuda"],
+    "steps": [
+      {
+        "narrative": "Necesitas $15,000 urgente. Tienes tres opciones: banco (18% anual), financiera app (72% anual) y tarjeta de crédito (36% anual).",
+        "question": "¿Cuál eliges?",
+        "aiGood": "El CAT (Costo Anual Total) es lo que debes comparar. Siempre elige la tasa más baja que puedas calificar.",
+        "aiBad": "Las financieras app cobran tasas altísimas. Pagarías hasta el doble del préstamo en intereses.",
+        "options": [
+          {"id": "a", "text": "El préstamo bancario al 18% anual", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Pido a familiares primero, sin intereses", "delta": 40, "isGood": true},
+          {"id": "c", "text": "La financiera app, es más rápido", "delta": -30, "isGood": false},
+          {"id": "d", "text": "Lo pongo en la tarjeta de crédito", "delta": -15, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Conseguiste el préstamo bancario a 18%. Ahora tienes pagos mensuales de $1,400.",
+        "question": "¿Cómo manejas el pago de la deuda?",
+        "aiGood": "Pagar más del mínimo reduce el plazo y los intereses totales. Cada peso extra va directo al capital.",
+        "aiBad": "Pagar solo lo mínimo extiende la deuda y aumenta el costo total del préstamo.",
+        "options": [
+          {"id": "a", "text": "Pago $1,400 puntual cada mes, sin falta", "delta": 25, "isGood": true},
+          {"id": "b", "text": "Pago $2,000 cuando puedo para terminar antes", "delta": 40, "isGood": true},
+          {"id": "c", "text": "A veces pago, a veces no, según cómo esté", "delta": -30, "isGood": false},
+          {"id": "d", "text": "Dejo de pagar si un mes está difícil", "delta": -35, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "xp": 200,
+    "title": "El Retiro, ¿Ya Pensaste en Él?",
+    "emoji": "🏖️",
+    "description": "Tienes 28 años y alguien te habla de pensión y ahorro para el retiro.",
+    "difficulty": "Medio",
+    "color": "teal",
+    "concepts": ["AFORE", "retiro", "interés compuesto", "largo plazo"],
+    "steps": [
+      {
+        "narrative": "Tu AFORE tiene $35,000 acumulados. Te dicen que si no haces aportaciones voluntarias, tu pensión será insuficiente.",
+        "question": "¿Qué decides hacer?",
+        "aiGood": "El interés compuesto funciona mejor cuanto más tiempo tiene. Empezar a los 28 hace una diferencia enorme al retiro.",
+        "aiBad": "Esperar hasta los 40 para ahorrar para el retiro significa necesitar ahorrar 3 veces más cada mes para el mismo resultado.",
+        "options": [
+          {"id": "a", "text": "Empiezo aportaciones voluntarias, aunque sean $500/mes", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Investigo mi AFORE y comparo rendimientos", "delta": 30, "isGood": true},
+          {"id": "c", "text": "Estoy muy joven, lo pienso en 10 años", "delta": -25, "isGood": false},
+          {"id": "d", "text": "El gobierno se encargará, no me preocupo", "delta": -30, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Decides aportar $500 mensuales a tu AFORE. Tu asesor menciona también fondos de inversión para el retiro.",
+        "question": "¿Diversificas tu ahorro para el retiro?",
+        "aiGood": "No depender solo del AFORE es inteligente. Un portafolio diversificado reduce riesgo y puede dar mejor rendimiento.",
+        "aiBad": "Concentrar todo el ahorro en un solo instrumento, incluso AFORE, limita tu potencial de crecimiento.",
+        "options": [
+          {"id": "a", "text": "AFORE + fondo indexado de largo plazo: diversifico", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Solo AFORE, es lo más conocido", "delta": 15, "isGood": true},
+          {"id": "c", "text": "Prefiero guardar el dinero en mi cuenta de banco", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Invierto todo en bienes raíces", "delta": 10, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "xp": 140,
+    "title": "Gastos Hormiga",
+    "emoji": "🐜",
+    "description": "No sabes a dónde se va tu dinero a fin de mes. ¿Qué está pasando?",
+    "difficulty": "Fácil",
+    "color": "lime",
+    "concepts": ["gastos hormiga", "registro de gastos", "presupuesto"],
+    "steps": [
+      {
+        "narrative": "Ganas $10,000 pero siempre llegas a ceros. Identificas que gastas: $80/día en café, $120 en snacks, $200 en suscripciones que olvidaste.",
+        "question": "¿Cómo atacas estos gastos?",
+        "aiGood": "Registrar gastos durante 30 días revela patrones invisibles. Lo que se mide, se puede mejorar.",
+        "aiBad": "Ignorar los gastos pequeños es como ignorar un goteo. Eventualmente inunda.",
+        "options": [
+          {"id": "a", "text": "Registro todos mis gastos 30 días para ver la realidad", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Cancelo suscripciones que no uso hoy mismo", "delta": 30, "isGood": true},
+          {"id": "c", "text": "Son gastos chicos, no importan", "delta": -25, "isGood": false},
+          {"id": "d", "text": "Me propongo gastar menos sin cambiar nada concreto", "delta": -10, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Descubriste que gastas $4,500 al mes en gastos hormiga. Si ahorraras la mitad, serían $2,250 extra/mes.",
+        "question": "¿Cómo reduces estos gastos sin miseria?",
+        "aiGood": "Presupuestar para gustos (con límite) funciona mejor que prohibirte todo. La restricción total suele colapsar.",
+        "aiBad": "Cortarlo todo de golpe genera rebote. La privación extrema raramente es sostenible.",
+        "options": [
+          {"id": "a", "text": "Asigno $1,500 para 'gustos' y el resto lo ahorro", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Sustituyo: café de casa en vez de cafetería", "delta": 30, "isGood": true},
+          {"id": "c", "text": "Me prohíbo todo durante un mes", "delta": -10, "isGood": false},
+          {"id": "d", "text": "No cambio nada, total ya gasté este mes", "delta": -25, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "xp": 220,
+    "title": "Comprar o Rentar Casa",
+    "emoji": "🏠",
+    "description": "Tienes 31 años y todos te dicen que ya deberías comprar casa.",
+    "difficulty": "Difícil",
+    "color": "indigo",
+    "concepts": ["hipoteca", "crédito INFONAVIT", "bienes raíces", "renta vs compra"],
+    "steps": [
+      {
+        "narrative": "Puedes: (A) Comprar un depa con crédito INFONAVIT a 20 años, pago mensual $8,500. (B) Rentar el mismo depa por $6,000 e invertir la diferencia.",
+        "question": "¿Qué decisión tomas?",
+        "aiGood": "No hay respuesta universal: depende de tu estabilidad laboral, ciudad, planes de vida y si el inmueble genera plusvalía. Analiza todo.",
+        "aiBad": "Comprar sin analizar porque 'rentar es tirar dinero' es un mito. Depende mucho del contexto específico.",
+        "options": [
+          {"id": "a", "text": "Analizo ROI de ambas opciones antes de decidir", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Compro, la casa es un activo y construyo patrimonio", "delta": 20, "isGood": true},
+          {"id": "c", "text": "Rento e invierto la diferencia de $2,500/mes", "delta": 25, "isGood": true},
+          {"id": "d", "text": "Compro porque rentar es 'tirar el dinero'", "delta": -15, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Decidiste comprar. El banco pide 10% de enganche: $120,000. Tienes $80,000 ahorrados.",
+        "question": "¿Cómo consigues los $40,000 faltantes?",
+        "aiGood": "Esperar y ahorrar el enganche completo evita endeudarte antes de endeudarte. Un plan de 6-8 meses es razonable.",
+        "aiBad": "Pedir prestado para el enganche significa que ya empiezas la hipoteca con deuda encima. Muy arriesgado.",
+        "options": [
+          {"id": "a", "text": "Espero 6 meses más ahorrando intensamente", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Pido prestado el resto a familia con plan de pago claro", "delta": 20, "isGood": true},
+          {"id": "c", "text": "Pido otro préstamo personal para completar", "delta": -25, "isGood": false},
+          {"id": "d", "text": "Busco una casa más barata que pueda pagar ahora", "delta": 30, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "xp": 170,
+    "title": "El Aumento de Sueldo",
+    "emoji": "🚀",
+    "description": "Te dieron un aumento del 20%. ¿Cómo manejas el dinero extra?",
+    "difficulty": "Medio",
+    "color": "violet",
+    "concepts": ["inflación de estilo de vida", "ahorro incremental", "metas financieras"],
+    "steps": [
+      {
+        "narrative": "Tu sueldo subió de $12,000 a $14,400. Tienes $2,400 extra al mes.",
+        "question": "¿Qué haces con ese dinero adicional?",
+        "aiGood": "Destinar al menos 50% del aumento a ahorro o inversión evita la inflación de estilo de vida y acelera tus metas.",
+        "aiBad": "Gastar todo el aumento 'mejorar el estilo de vida' mantiene la misma distancia entre tus ingresos y metas.",
+        "options": [
+          {"id": "a", "text": "50% a inversión, 50% para mejorar mi calidad de vida", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Todo a inversión/ahorro, mantengo el mismo estilo de vida", "delta": 35, "isGood": true},
+          {"id": "c", "text": "Mejoro mi departamento, ropa y salidas. Me lo merezco.", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Contrato servicios premium que tenía pendientes", "delta": -15, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Decidiste ahorrar $1,200 extra/mes. Ahora defines una meta para ese ahorro.",
+        "question": "¿Qué meta le asignas al dinero?",
+        "aiGood": "El dinero con propósito se respeta más. Asignar cada peso a una meta reduce el gasto impulsivo.",
+        "aiBad": "El ahorro sin meta específica tiende a disiparse ante la primera tentación.",
+        "options": [
+          {"id": "a", "text": "Fondo para viaje (6 meses), después inversión a largo plazo", "delta": 30, "isGood": true},
+          {"id": "b", "text": "Enganche para casa en 3 años", "delta": 35, "isGood": true},
+          {"id": "c", "text": "Lo dejo en banco sin meta específica", "delta": -10, "isGood": false},
+          {"id": "d", "text": "Lo invierto todo en acciones individuales agresivas", "delta": -15, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "xp": 190,
+    "title": "Negocios con Amigos",
+    "emoji": "🤜🤛",
+    "description": "Tu mejor amigo te propone poner un negocio juntos. ¿Cómo lo manejas?",
+    "difficulty": "Difícil",
+    "color": "rose",
+    "concepts": ["sociedad", "capital de riesgo", "contratos", "negocios"],
+    "steps": [
+      {
+        "narrative": "Tu amigo propone una tienda de ropa en línea. Necesitan $30,000 de inversión inicial. Quiere que sean socios 50/50 pero sin contrato.",
+        "question": "¿Cómo procedes?",
+        "aiGood": "Los contratos protegen la amistad, no la dañan. Los acuerdos verbales son la fuente #1 de conflictos entre socios.",
+        "aiBad": "Invertir sin contrato es regalar dinero con estrés incluido. Hasta los mejores amigos tienen conflictos de dinero.",
+        "options": [
+          {"id": "a", "text": "Acepto, pero exijo contrato de sociedad por escrito", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Propongo empezar pequeño con $5,000 cada uno para probar", "delta": 35, "isGood": true},
+          {"id": "c", "text": "Acepto sin contrato, es mi mejor amigo", "delta": -30, "isGood": false},
+          {"id": "d", "text": "Rechazo, no mezclo amigos con negocios", "delta": 10, "isGood": true}
+        ]
+      },
+      {
+        "narrative": "Acordaron hacerlo con contrato. El negocio lleva 4 meses y va lento. Tu amigo quiere meter $20,000 más de publicidad.",
+        "question": "¿Qué dices ante esta nueva inversión?",
+        "aiGood": "Pedir métricas antes de invertir más es básico. La publicidad sin datos de conversión puede ser dinero tirado.",
+        "aiBad": "Invertir más dinero en un negocio sin entender por qué va lento puede acelerar las pérdidas.",
+        "options": [
+          {"id": "a", "text": "Pido ver métricas y resultados antes de decidir", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Acepto, la publicidad es necesaria para crecer", "delta": -10, "isGood": false},
+          {"id": "c", "text": "Propongo primero optimizar lo que tenemos sin más inversión", "delta": 35, "isGood": true},
+          {"id": "d", "text": "Digo que no puedo invertir más por ahora", "delta": 20, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "xp": 150,
+    "title": "El Seguro de Gastos Médicos",
+    "emoji": "🏥",
+    "description": "¿Necesitas un seguro médico privado si tienes IMSS?",
+    "difficulty": "Medio",
+    "color": "cyan",
+    "concepts": ["seguros", "gestión de riesgo", "salud", "protección patrimonial"],
+    "steps": [
+      {
+        "narrative": "Tienes IMSS, pero tu empresa te ofrece un seguro de gastos médicos mayores por $3,500/año (deducible $10,000). ¿Vale la pena?",
+        "question": "¿Qué decides?",
+        "aiGood": "El seguro médico privado cubre lo que el IMSS no: atención rápida, hospitales privados, enfermedades graves costosas.",
+        "aiBad": "Una enfermedad grave sin seguro privado puede costar $200,000 o más, destruyendo años de ahorro en semanas.",
+        "options": [
+          {"id": "a", "text": "Lo contrato, el riesgo de no tenerlo es muy alto", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Comparo opciones antes: ¿hay mejor relación costo-beneficio?", "delta": 40, "isGood": true},
+          {"id": "c", "text": "No lo contrato, tengo IMSS y soy joven y sano", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Lo contrato solo si pierdo el IMSS", "delta": -10, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Contrataste el seguro. Al año, no usaste nada. Sientes que fue dinero perdido.",
+        "question": "¿Cómo ves ese gasto en retrospectiva?",
+        "aiGood": "No usar el seguro significa que estuviste sano. Eso es la mejor noticia posible. El seguro cubre el 'si acaso'.",
+        "aiBad": "Ver el seguro como pérdida porque 'no lo usé' es malentender para qué sirve. Se paga por tranquilidad y protección.",
+        "options": [
+          {"id": "a", "text": "Fue bien gastado: pagué por tranquilidad y protección", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Lo cancelo para el siguiente año, no lo ocupé", "delta": -25, "isGood": false},
+          {"id": "c", "text": "Evalúo si el plan cubre lo que necesito y renuevo", "delta": 40, "isGood": true},
+          {"id": "d", "text": "Busco uno más barato con mejor cobertura", "delta": 30, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "xp": 160,
+    "title": "El Score de Crédito",
+    "emoji": "⭐",
+    "description": "Tu score en Buró de Crédito es bajo. ¿Cómo lo reparas?",
+    "difficulty": "Medio",
+    "color": "yellow",
+    "concepts": ["buró de crédito", "historial crediticio", "score", "deuda"],
+    "steps": [
+      {
+        "narrative": "Tu score en Buró es 580 (regular). Quieres mejorarlo para calificar a mejores créditos. Debes $8,000 en una tarjeta.",
+        "question": "¿Por dónde empiezas?",
+        "aiGood": "Pagar deudas vencidas es el paso #1 para mejorar el score. El historial de pago representa 35% del score.",
+        "aiBad": "Ignorar deudas vencidas o pedir más crédito sin pagar las anteriores empeora activamente el score.",
+        "options": [
+          {"id": "a", "text": "Pago la deuda de tarjeta primero, aunque tarde un mes más", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Negocio con el banco un plan de pago accesible", "delta": 35, "isGood": true},
+          {"id": "c", "text": "Pido un nuevo crédito para pagar el anterior", "delta": -30, "isGood": false},
+          {"id": "d", "text": "No hago nada, el buró se 'limpia' solo en 6 años", "delta": -20, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Pagaste la deuda. Tu score subió a 640. ¿Cómo lo sigues mejorando?",
+        "question": "¿Qué hábitos adoptas para mejorar tu score?",
+        "aiGood": "Pagar siempre en tiempo, mantener bajo uso de crédito (menos del 30%) y no cancelar tarjetas antiguas son los pilares del buen score.",
+        "aiBad": "Usar más del 70% de tu línea de crédito, aunque pagues completo, puede bajar tu score.",
+        "options": [
+          {"id": "a", "text": "Pago siempre antes del corte y uso menos del 30% del límite", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Solicito que aumenten mi límite para mejorar el ratio de uso", "delta": 30, "isGood": true},
+          {"id": "c", "text": "Cancelo todas mis tarjetas para no tener deudas", "delta": -15, "isGood": false},
+          {"id": "d", "text": "Uso la tarjeta al máximo y la pago completa cada mes", "delta": -10, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "xp": 250,
+    "title": "Libertad Financiera",
+    "emoji": "🦅",
+    "description": "Tienes 35 años y quieres dejar de depender del sueldo mensual.",
+    "difficulty": "Difícil",
+    "color": "emerald",
+    "concepts": ["libertad financiera", "ingresos pasivos", "regla del 4%", "FIRE"],
+    "steps": [
+      {
+        "narrative": "Gastas $18,000/mes. Según la regla del 4%, necesitas $5.4 millones invertidos para vivir de los rendimientos.",
+        "question": "¿Cómo empiezas a construir ese patrimonio?",
+        "aiGood": "La libertad financiera se construye con ingresos crecientes + gastos controlados + inversión consistente a lo largo de años.",
+        "aiBad": "Buscar 'el negocio que te hará rico rápido' tiene 95% de probabilidad de fracasar. La riqueza se construye lento y constante.",
+        "options": [
+          {"id": "a", "text": "Aumento ingresos (negocio lateral) + invierto 40% de todo lo que gano", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Reduzco gastos radicalmente y maximizo inversiones", "delta": 35, "isGood": true},
+          {"id": "c", "text": "Busco el negocio que me haga millonario en 2 años", "delta": -25, "isGood": false},
+          {"id": "d", "text": "Es imposible a mi edad, mejor no pienso en eso", "delta": -30, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Llevas 2 años invirtiendo $7,000/mes. Tu portafolio vale $175,000. Un amigo te ofrece una 'oportunidad única' de alto rendimiento.",
+        "question": "¿Qué haces con la 'oportunidad'?",
+        "aiGood": "Si suena demasiado bueno para ser verdad, probablemente lo es. Los esquemas de alto rendimiento son estafas el 99% de las veces.",
+        "aiBad": "Las estafas financieras (pirámides, esquemas Ponzi) han arruinado a personas que tardaron décadas en ahorrar ese dinero.",
+        "options": [
+          {"id": "a", "text": "Investigo a fondo antes: regulación, transparencia, referencias", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Rechazo, parece demasiado bueno para ser verdad", "delta": 40, "isGood": true},
+          {"id": "c", "text": "Meto solo $10,000 'para probar'", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Meto todo, confío en mi amigo", "delta": -40, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "xp": 140,
+    "title": "Dinero y Relaciones",
+    "emoji": "💑",
+    "description": "Empiezas una relación seria. ¿Cómo manejan el dinero en pareja?",
+    "difficulty": "Medio",
+    "color": "fuchsia",
+    "concepts": ["finanzas en pareja", "comunicación", "metas compartidas", "independencia financiera"],
+    "steps": [
+      {
+        "narrative": "Llevan 8 meses juntos. Tu pareja gana más que tú. Salen a cenar seguido y siempre paga la misma persona.",
+        "question": "¿Cómo abordan el tema del dinero?",
+        "aiGood": "Hablar abiertamente de dinero es uno de los fundamentos de una relación sana. Los tabúes financieros destruyen parejas.",
+        "aiBad": "Evitar la conversación crea resentimientos silenciosos que explotan después.",
+        "options": [
+          {"id": "a", "text": "Hablo honestamente de mis finanzas y propongo algo proporcional", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Propongo que cada quien pague lo suyo siempre", "delta": 25, "isGood": true},
+          {"id": "c", "text": "No digo nada para no incomodar", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Dejo que sigan pagando, total ellos ganan más", "delta": -25, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Deciden vivir juntos. Ganas $14,000, tu pareja $20,000. La renta es $9,000.",
+        "question": "¿Cómo dividen los gastos del hogar?",
+        "aiGood": "Dividir proporcional al ingreso es más justo que dividir a la mitad cuando hay diferencia significativa de sueldos.",
+        "aiBad": "Dividir al 50-50 con ingresos muy distintos puede generar presión financiera en el que gana menos.",
+        "options": [
+          {"id": "a", "text": "Proporcional al ingreso: yo 41%, pareja 59%", "delta": 40, "isGood": true},
+          {"id": "b", "text": "50-50 aunque yo gane menos, para ser 'iguales'", "delta": -10, "isGood": false},
+          {"id": "c", "text": "Mi pareja paga todo, yo administro la casa", "delta": -15, "isGood": false},
+          {"id": "d", "text": "Cuenta conjunta para gastos comunes, resto individual", "delta": 35, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "xp": 130,
+    "title": "Las Criptomonedas",
+    "emoji": "₿",
+    "description": "Todo el mundo habla de cripto. ¿Cómo te acercas a este mundo?",
+    "difficulty": "Medio",
+    "color": "orange",
+    "concepts": ["criptomonedas", "volatilidad", "riesgo", "diversificación"],
+    "steps": [
+      {
+        "narrative": "Bitcoin subió 40% en el último mes. Un conocido dice que va a seguir subiendo y que vendas tus CETES para invertir ahí.",
+        "question": "¿Qué haces?",
+        "aiGood": "Invertir en cripto está bien, pero nunca más del 5-10% de tu portafolio, y nunca lo que no puedas perder.",
+        "aiBad": "Vender inversiones seguras para perseguir rendimientos recientes es 'comprar caro por miedo a quedarse fuera' (FOMO).",
+        "options": [
+          {"id": "a", "text": "Investigo cripto y, si me convence, asigno máximo 10% de mi portafolio", "delta": 40, "isGood": true},
+          {"id": "b", "text": "No me interesa, es muy volátil para mi perfil", "delta": 25, "isGood": true},
+          {"id": "c", "text": "Vendo mis CETES y meto todo a Bitcoin", "delta": -35, "isGood": false},
+          {"id": "d", "text": "Meto $500 'para aprender', con dinero que puedo perder", "delta": 30, "isGood": true}
+        ]
+      },
+      {
+        "narrative": "Invertiste $3,000 en cripto. En 2 semanas bajó 30%. Tu inversión vale $2,100.",
+        "question": "¿Cómo reaccionas?",
+        "aiGood": "La volatilidad de cripto es predecible: sube y baja mucho. Si invertiste lo que podías perder, la respuesta correcta es mantener la calma.",
+        "aiBad": "Vender en pánico confirma la pérdida. La volatilidad es bidireccional: así como bajó, puede subir.",
+        "options": [
+          {"id": "a", "text": "Mantengo, sabía que era volátil cuando entré", "delta": 30, "isGood": true},
+          {"id": "b", "text": "Vendo antes de perder más", "delta": -20, "isGood": false},
+          {"id": "c", "text": "Compro más, está 'en descuento'", "delta": 15, "isGood": true},
+          {"id": "d", "text": "Aprendo de la experiencia y ajusto mi estrategia", "delta": 35, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "xp": 145,
+    "title": "Presupuesto 50-30-20",
+    "emoji": "📊",
+    "description": "Aprende el método de presupuesto más popular del mundo.",
+    "difficulty": "Fácil",
+    "color": "sky",
+    "concepts": ["regla 50-30-20", "presupuesto", "necesidades vs deseos"],
+    "steps": [
+      {
+        "narrative": "Ganas $12,000 netos al mes. La regla 50-30-20 dice: 50% necesidades, 30% deseos, 20% ahorro.",
+        "question": "¿Cómo clasificas el streaming de $200/mes?",
+        "aiGood": "Los servicios de entretenimiento son deseos, no necesidades. Reconocer esto ayuda a tomar decisiones conscientes.",
+        "aiBad": "Clasificar deseos como 'necesidades' infla ese rubro y deja sin margen para ahorrar.",
+        "options": [
+          {"id": "a", "text": "Deseo: entra en el 30%", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Necesidad: entra en el 50%", "delta": -15, "isGood": false},
+          {"id": "c", "text": "Ahorro: lo considero inversión cultural", "delta": -20, "isGood": false},
+          {"id": "d", "text": "No importa la categoría, lo que importa es que quepa en el presupuesto", "delta": 20, "isGood": true}
+        ]
+      },
+      {
+        "narrative": "Tus necesidades suman $7,200 (60% del sueldo). Estás sobre el límite del 50%.",
+        "question": "¿Qué ajustes haces?",
+        "aiGood": "Si las necesidades superan el 50%, la solución es reducir alguna necesidad O aumentar ingresos. No recortar el ahorro.",
+        "aiBad": "Reducir el ahorro para 'tapar' necesidades excesivas es el error más común. El problema se vuelve crónico.",
+        "options": [
+          {"id": "a", "text": "Analizo si puedo reducir renta o gastos fijos", "delta": 35, "isGood": true},
+          {"id": "b", "text": "Busco ingresos adicionales para subir el total", "delta": 40, "isGood": true},
+          {"id": "c", "text": "Reduzco el ahorro al 10% para compensar", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Recorto los deseos al 20% y mantengo el 20% de ahorro", "delta": 30, "isGood": true}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "xp": 175,
+    "title": "El Dinero que Heredaste",
+    "emoji": "🏺",
+    "description": "Un familiar falleció y te dejó $80,000. ¿Qué haces con esa herencia?",
+    "difficulty": "Medio",
+    "color": "stone",
+    "concepts": ["herencia", "planificación financiera", "inversión", "deuda"],
+    "steps": [
+      {
+        "narrative": "Recibes $80,000 de herencia. Tienes deudas de $25,000 en tarjeta (36% anual) y tu fondo de emergencia es de $5,000 (deberías tener $30,000).",
+        "question": "¿Cómo distribuyes los $80,000?",
+        "aiGood": "Pagar deuda cara + completar el fondo de emergencia primero es lo más inteligente. El resto puede invertirse.",
+        "aiBad": "Invertir todo ignorando deudas al 36% es un error: es imposible ganar más del 36% garantizado invirtiendo.",
+        "options": [
+          {"id": "a", "text": "Pago toda la deuda ($25K) + completo el fondo ($25K) + invierto el resto ($30K)", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Invierto todo, el rendimiento pagará las deudas", "delta": -25, "isGood": false},
+          {"id": "c", "text": "Me doy el viaje que siempre soñé ($20K) y administro el resto", "delta": -15, "isGood": false},
+          {"id": "d", "text": "Pago la deuda y dejo el resto en banco de ahorro", "delta": 20, "isGood": true}
+        ]
+      },
+      {
+        "narrative": "Pagaste deudas y completaste el fondo. Te quedan $30,000 para invertir.",
+        "question": "¿Cómo inviertes ese dinero de golpe?",
+        "aiGood": "Dollar-cost averaging (invertir en partes iguales cada mes) reduce el riesgo de invertir todo en un mal momento.",
+        "aiBad": "Invertir todo de golpe puede ser arriesgado si el mercado cae justo después. No es el fin del mundo, pero sí más riesgo.",
+        "options": [
+          {"id": "a", "text": "Invierto $5,000/mes durante 6 meses (DCA) en fondo indexado", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Lo divido: $15K en CETES y $15K en fondo indexado", "delta": 35, "isGood": true},
+          {"id": "c", "text": "Meto todo de una sola vez en acciones individuales", "delta": -15, "isGood": false},
+          {"id": "d", "text": "Lo dejo en el banco esperando 'el momento correcto'", "delta": -10, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "xp": 165,
+    "title": "El Empleo Independiente",
+    "emoji": "💼",
+    "description": "Renunciaste a tu trabajo para ser freelancer. Las finanzas cambian totalmente.",
+    "difficulty": "Difícil",
+    "color": "amber",
+    "concepts": ["freelance", "ingresos variables", "impuestos", "reservas"],
+    "steps": [
+      {
+        "narrative": "Tu primer mes como freelancer ganaste $18,000. El segundo, solo $6,000. Los ingresos son irregulares.",
+        "question": "¿Cómo administras los ingresos variables?",
+        "aiGood": "Con ingresos variables, lo clave es presupuestar basado en tu 'mes malo' promedio, no en el mejor.",
+        "aiBad": "Gastar basado en los meses buenos y quedar sin nada en los malos crea un ciclo de estrés y deuda.",
+        "options": [
+          {"id": "a", "text": "Presupuesto basado en $8,000/mes (mi promedio bajo) y ahorro el excedente", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Cuando gano más, ahorro; cuando gano menos, gasto menos", "delta": 30, "isGood": true},
+          {"id": "c", "text": "Gasto según lo que entró ese mes", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Uso tarjeta de crédito los meses malos", "delta": -25, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Llevas 6 meses freelanceando. Un contador te dice que debes pagar ISR. Nunca habías pensado en eso.",
+        "question": "¿Cómo manejas los impuestos como freelancer?",
+        "aiGood": "Como freelancer debes apartar entre 15-25% de cada ingreso para impuestos. Es dinero que no es tuyo aunque lo tengas.",
+        "aiBad": "Ignorar impuestos hasta que el SAT te los cobre de golpe puede arruinar meses de trabajo en un día.",
+        "options": [
+          {"id": "a", "text": "Separo 20% de cada pago recibido en una cuenta para impuestos", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Contrato a un contador desde ahora", "delta": 35, "isGood": true},
+          {"id": "c", "text": "Ya veré cómo pago cuando me los cobren", "delta": -30, "isGood": false},
+          {"id": "d", "text": "No declaro, es mucho rollo", "delta": -40, "isGood": false}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "xp": 230,
+    "title": "El Legado: Tu Testamento",
+    "emoji": "📜",
+    "description": "Tienes 38 años, casa, ahorros y familia. ¿Qué pasa si algo te sucede?",
+    "difficulty": "Difícil",
+    "color": "slate",
+    "concepts": ["testamento", "seguro de vida", "planificación patrimonial", "beneficiarios"],
+    "steps": [
+      {
+        "narrative": "Tienes $400,000 en ahorros/inversiones, una casa y dos hijos. No tienes testamento ni seguro de vida.",
+        "question": "¿Qué pasos tomas para proteger a tu familia?",
+        "aiGood": "El testamento y el seguro de vida son los dos pilares de la protección familiar. Sin ellos, tu familia enfrentará problemas legales y económicos graves.",
+        "aiBad": "Sin testamento, el patrimonio puede quedar en litigio por años. Tus hijos podrían quedarse sin acceso a los bienes.",
+        "options": [
+          {"id": "a", "text": "Hago testamento ante notario y contrato seguro de vida", "delta": 40, "isGood": true},
+          {"id": "b", "text": "Al menos actualizo beneficiarios en cuentas e inversiones", "delta": 25, "isGood": true},
+          {"id": "c", "text": "Soy joven, lo hago cuando sea mayor", "delta": -25, "isGood": false},
+          {"id": "d", "text": "Mi familia sabe qué hacer, no necesito documentos", "delta": -30, "isGood": false}
+        ]
+      },
+      {
+        "narrative": "Decides contratar un seguro de vida. El agente te ofrece dos opciones: $800/mes (cobertura $3M) o $1,500/mes (con componente de inversión).",
+        "question": "¿Cuál seguro eliges?",
+        "aiGood": "Los seguros de vida con componente de inversión (universales/dotales) suelen tener peor rendimiento que separar seguro e inversión.",
+        "aiBad": "Pagar más por un 'seguro que también invierte' casi siempre da peores resultados que comprar seguro puro + invertir por separado.",
+        "options": [
+          {"id": "a", "text": "El de $800/mes: seguro puro + invierto la diferencia yo mismo", "delta": 40, "isGood": true},
+          {"id": "b", "text": "El de $1,500/mes: todo en uno es más cómodo", "delta": -10, "isGood": false},
+          {"id": "c", "text": "Ninguno, es demasiado caro para mi presupuesto actual", "delta": -20, "isGood": false},
+          {"id": "d", "text": "Busco cotizaciones con otras aseguradoras primero", "delta": 35, "isGood": true}
+        ]
+      }
+    ]
+  }
+]
