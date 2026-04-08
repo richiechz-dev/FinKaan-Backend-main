@@ -10,9 +10,11 @@ from ..security import hash_password, verify_password, create_access_token
 
 def register_user(body: schemas.SignUpRequest, db: Session) -> schemas.TokenResponse:
     """Crea un usuario nuevo y su progreso inicial. Lanza 409 si el email ya existe."""
+
     existing = db.query(models.User).filter(
         models.User.email == body.email.lower()
     ).first()
+
     if existing:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
@@ -25,19 +27,21 @@ def register_user(body: schemas.SignUpRequest, db: Session) -> schemas.TokenResp
         hashed_password=hash_password(body.password),
     )
     db.add(user)
-    db.flush()  # obtiene user.id sin commit
+    db.flush()
 
     db.add(models.UserProgress(user_id=user.id))
     db.commit()
     db.refresh(user)
 
+    # 🔐 Generar token
+    access_token = create_access_token(user.id)
+
     return schemas.TokenResponse(
-        access_token=create_access_token(user.id),
+        access_token=access_token,
         user_id=user.id,
         name=user.name,
         onboarding_done=user.onboarding_done,
     )
-
 
 def authenticate_user(body: schemas.LoginRequest, db: Session) -> schemas.TokenResponse:
     """Valida credenciales y retorna un token. Lanza 401 si son incorrectas."""

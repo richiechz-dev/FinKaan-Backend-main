@@ -6,7 +6,7 @@ conservando aquí solo el manejo HTTP (request/response, códigos de estado).
 """
 from datetime import datetime, timezone
 
-from fastapi import APIRouter, Depends, Request, HTTPException
+from fastapi import APIRouter, Depends, Request, HTTPException, Response
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from jose import jwt, JWTError
 from sqlalchemy.orm import Session
@@ -26,15 +26,66 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 _bearer = HTTPBearer()
 
 
-@router.post("/signup", response_model=schemas.TokenResponse, status_code=201)
-def signup(body: schemas.SignUpRequest, db: Session = Depends(get_db)):
-    return auth_service.register_user(body, db)
+@router.post("/signup", status_code=201)
+def signup(
+    body: schemas.SignUpRequest,
+    response: Response,
+    db: Session = Depends(get_db)
+):
+    result = auth_service.register_user(body, db)
 
+    # ⚡ Guardar sesión en Redis
+    #redis_client.set(f"session:{result.user_id}", result.access_token, ex=3600)
 
-@router.post("/login", response_model=schemas.TokenResponse)
-def login(body: schemas.LoginRequest, db: Session = Depends(get_db)):
-    return auth_service.authenticate_user(body, db)
+    # 🌐 Cookie segura (web)
+    response.set_cookie(
+        key="access_token",
+        value=result.access_token,
+        httponly=True,
+        secure=True,   # ⚠️ False en localhost
+        samesite="none"
+    )
 
+    print(f'Registro: {result}')
+
+    # 📱 Respuesta (mobile necesita el token)
+    return {
+        "access_token": result.access_token,
+        "token_type": "bearer",
+        "user_id": result.user_id,
+        "name": result.name,
+        "onboarding_done":result.onboarding_done
+    }
+
+@router.post("/login", status_code=200)
+def login(
+    body: schemas.LoginRequest,
+    response: Response,
+    db: Session = Depends(get_db)
+):
+    result = auth_service.authenticate_user(body, db)
+
+    # ⚡ Guardar sesión en Redis (source of truth)
+    #redis_client.set(f"session:{result.user_id}", result.access_token, ex=3600)
+
+    # 🌐 Cookie segura (para web)
+    response.set_cookie(
+        key="access_token",
+        value=result.access_token,
+        httponly=True,
+        secure=True,   # ⚠️ False en localhost
+        samesite="lax"
+    )
+    print(f'Login: {result}')
+
+    # 📱 Respuesta (mobile usa token)
+    return {
+        "access_token": result.access_token,
+        "token_type": "bearer",
+        "user_id": result.user_id,
+        "name": result.name,
+        "onboarding_done": result.onboarding_done,
+    }
 
 @router.post("/logout", response_model=schemas.MessageResponse)
 def logout(

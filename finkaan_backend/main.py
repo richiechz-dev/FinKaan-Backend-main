@@ -41,9 +41,13 @@ app = FastAPI(
 app.add_middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)
 
 # CORS — en producción reemplazar "*" por el dominio real
+origins = [
+    "http://localhost:3000",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=['*'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
