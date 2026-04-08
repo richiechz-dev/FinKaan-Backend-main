@@ -42,6 +42,7 @@ app.add_middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)
 
 # CORS — en producción reemplazar "*" por el dominio real
 origins = [
+    "https://finkaan.vercel.app",
     "https://finkaan-as1tpferh-kenais-projects-92e859d0.vercel.app",
 ]
 
