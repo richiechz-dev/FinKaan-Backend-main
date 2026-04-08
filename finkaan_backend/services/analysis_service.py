@@ -264,29 +264,32 @@ async def _call_gemini(message: str) -> dict[str, Any]:
 async def generate_behavioral_analysis(
     decisions: list[dict[str, Any]],
     user_context: dict[str, Any],
-) -> dict[str, Any]:
+):
+# -> dict[str, Any]:
     """
     Genera análisis conductual. Fallback automático Claude → Gemini.
     Siempre llama a la IA (con o sin decisiones).
     """
     message = _build_message(decisions, user_context)
 
-    async with httpx.AsyncClient(timeout=30.0) as client:
-        try:
-            result = await _call_claude(message, client)
-            logger.info("Análisis con Claude ✅")
-            return result
-        except Exception as exc:
-            logger.warning("Claude falló (%s) — usando Gemini…", exc)
+    print(message)  # DEBUG: Ver el mensaje completo enviado a la IA
 
-    try:
-        result = await _call_gemini(message)
-        logger.info("Análisis con Gemini ✅")
-        return result
-    except Exception as exc:
-        logger.error("Gemini falló: %s", exc)
+    # async with httpx.AsyncClient(timeout=30.0) as client:
+    #     try:
+    #         result = await _call_claude(message, client)
+    #         logger.info("Análisis con Claude ✅")
+    #         return result
+    #     except Exception as exc:
+    #         logger.warning("Claude falló (%s) — usando Gemini…", exc)
 
-    raise HTTPException(
-        status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-        detail="Servicio de análisis no disponible. Intenta más tarde.",
-    )
+    # try:
+    #     result = await _call_gemini(message)
+    #     logger.info("Análisis con Gemini ✅")
+    #     return result
+    # except Exception as exc:
+    #     logger.error("Gemini falló: %s", exc)
+
+    # raise HTTPException(
+    #     status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+    #     detail="Servicio de análisis no disponible. Intenta más tarde.",
+    # )
