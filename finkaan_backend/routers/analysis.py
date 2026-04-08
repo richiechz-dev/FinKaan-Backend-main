@@ -57,7 +57,7 @@ class BehavioralAnalysisResponse(BaseModel):
 
 # ─── Endpoint ─────────────────────────────────────────────────────────────────
 
-@router.post("/behavioral", response_model=BehavioralAnalysisResponse)
+@router.post("/behavioral") # response_model=BehavioralAnalysisResponse)
 async def behavioral_analysis(
     body: BehavioralAnalysisRequest,
     current_user: User = Depends(get_current_user),
