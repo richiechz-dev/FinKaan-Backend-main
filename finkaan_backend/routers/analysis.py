@@ -12,6 +12,9 @@ from typing import Any
 from ..models import User
 from ..security import get_current_user
 from ..services import analysis_service
+from .. import models
+from ..database import get_db
+from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/analysis", tags=["analysis"])
 
@@ -54,8 +57,34 @@ class BehavioralAnalysisResponse(BaseModel):
     sessions: list[dict[str, Any]]
     biases: list[dict[str, Any]]
 
+class BehavioralAnalysisRequest(BaseModel):
+    decisions: list[ScenarioDecision]
+    user_context: UserContext = UserContext()
 
-# ─── Endpoint ─────────────────────────────────────────────────────────────────
+
+class NewBehavioralAnalysisRequest(BaseModel):
+    user_context: UserContext = UserContext()
+
+
+@router.post("/behavioral_new")
+async def behavioral_analysis(
+    body: NewBehavioralAnalysisRequest,
+    current_user: models.User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    context_raw = body.user_context.model_dump()
+
+    result = await analysis_service.build_retro(
+        db=db,
+        user_id=current_user.id,
+        user_context=context_raw
+    )
+
+    return result
+
+    
+    
+
 
 @router.post("/behavioral",response_model=BehavioralAnalysisResponse)
 async def behavioral_analysis(

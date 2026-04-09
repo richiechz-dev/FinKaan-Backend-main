@@ -10,6 +10,11 @@ import httpx
 from fastapi import HTTPException, status
 
 from ..config import settings
+from sqlalchemy.orm import Session
+from fastapi import Depends
+
+from ..database import get_db
+from .. import models
 
 logger = logging.getLogger(__name__)
 
@@ -57,7 +62,161 @@ Reglas:
 - IMPORTANTE: No uses comillas dobles dentro de los valores de texto. Usa solo comillas simples si necesitas citar algo."""
 
 
+
+CATEGORIES = [
+    "ahorro",
+    "presupuesto",
+    "banco_azteca",
+    "pagos",
+    "liquidez",
+    "emergencia",
+    "prestamos",
+    "credito",
+    "tarjeta",
+    "consumo",
+    "promociones",
+    "cobranza",
+    "metas",
+    "diagnostico",
+]
+
+_WIKI_PROMPT = f"""
+Eres un analista financiero conductual.
+
+Tu tarea es construir una "wiki del usuario" basada en sus respuestas.
+
+Evalúa su desempeño en estas categorías:
+{", ".join(CATEGORIES)}
+
+Responde SOLO con JSON válido:
+
+{{
+  "sintesis": "<resumen del perfil del usuario en 3-4 líneas>",
+  "categorias": [
+    {{
+      "nombre": "<categoria>",
+      "nivel": "<ALTO|MEDIO|BAJO>",
+      "score": <0-100>,
+      "explicacion": "<por qué tiene ese nivel>"
+    }}
+  ],
+  "fortalezas": ["<...>"],
+  "debilidades": ["<...>"],
+  "recomendacion_general": "<acción clara para mejorar>"
+}}
+
+Reglas:
+- Evalúa TODAS las categorías
+- Sé específico
+- Usa lenguaje claro
+"""
+def get_answers(db: Session, user_id: int):
+    rows = (
+        db.query(models.Answers)
+        .filter(
+            models.Answers.user_id == user_id,
+            models.Answers.isUsed == False
+        )
+        .all()
+    )
+
+    if not rows:
+        return []
+
+    # 🔥 Transformar a formato útil para IA
+    answers = []
+    for r in rows:
+        answers.append({
+            "narrativa": r.narrtiva,
+            "pregunta": r.question,
+            "respuesta": r.respuesta,
+            "delta": r.delta,
+            "is_good": r.isGood
+        })
+
+    return answers
+
+
+async def build_retro(db: Session, user_id: int, user_context: dict[str, Any]):
+    answers = get_answers(db, user_id)
+
+    if not answers:
+        return None
+
+    # 🧾 Construir mensaje
+    lines = []
+    lines.append("Respuestas del usuario:\n")
+
+    for i, a in enumerate(answers, 1):
+        lines.append(f"{i}. {a['pregunta']}")
+        lines.append(f"   → {a['respuesta']} ({'✓' if a['is_good'] else '✗'}) | delta: {a['delta']}")
+        lines.append("")
+
+    lines.append("Perfil del usuario:")
+    for k, v in user_context.items():
+        lines.append(f"- {k}: {v}")
+
+    message = "\n".join(lines)
+
+    # 🤖 Llamar IA
+    async with httpx.AsyncClient(timeout=30.0) as client:
+        try:
+            raw = await _call_claude(message, client)
+        except:
+            raw = await _call_gemini(message)
+
+    # 🧹 Parsear
+    parsed = raw if isinstance(raw, dict) else _parse_json(raw)
+
+    # 💾 Guardar en DB (WIKI)
+    fb = models.Feedback(
+        user_id=user_id,
+        fb=json.dumps(parsed.get("categorias", [])),  # detalle por categoría
+        sintesis=parsed.get("sintesis", "")
+    )
+
+    db.add(fb)
+
+    # 🔥 Marcar answers como usados
+    (
+        db.query(models.Answers)
+        .filter(models.Answers.user_id == user_id, models.Answers.isUsed == False)
+        .update({"isUsed": True})
+    )
+
+    db.commit()
+
+    return parsed
+
 # ─── Mensajes ─────────────────────────────────────────────────────────────────
+
+def get_answers(db: Session, user_id: int):
+    rows = (
+        db.query(models.Answers)
+        .filter(
+            models.Answers.user_id == user_id,
+            models.Answers.isUsed == False
+        )
+        .all()
+    )
+
+    if not rows:
+        return []
+
+    # 🔥 Transformar a formato útil para IA
+    answers = []
+    for r in rows:
+        answers.append({
+            "narrativa": r.narrtiva,
+            "pregunta": r.question,
+            "respuesta": r.respuesta,
+            "delta": r.delta,
+            "is_good": r.isGood
+        })
+
+    return answers
+
+
 
 def _build_message(decisions: list[dict[str, Any]], user_context: dict[str, Any]) -> str:
     lines = []
@@ -193,7 +352,7 @@ async def _call_claude(message: str, client: httpx.AsyncClient) -> dict[str, Any
         json={
             "model": ANTHROPIC_MODEL,
             "max_tokens": 2000,
-            "system": _SYSTEM_PROMPT,
+            "system": _WIKI_PROMPT,
             "messages": [{"role": "user", "content": message}],
         },
     )
@@ -232,7 +391,7 @@ async def _call_gemini(message: str) -> dict[str, Any]:
 
     model = genai.GenerativeModel(
         model_name=GEMINI_MODEL,
-        system_instruction=_SYSTEM_PROMPT,
+        system_instruction=_WIKI_PROMPT,
         generation_config=gen_config,
     )
 
