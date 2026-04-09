@@ -4,7 +4,7 @@ models.py — Modelos SQLAlchemy para FinKaan
 from datetime import datetime, timezone
 from sqlalchemy import (
     Boolean, DateTime, Integer, String, Text,
-    ForeignKey, JSON
+    ForeignKey, JSON, UniqueConstraint
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -176,3 +176,49 @@ class Answers(Base):
     isUsed:  Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     
     user: Mapped["User"] = relationship("User", back_populates="answers")
+    
+    # Relación opcional — para hacer scenario
+    translations: Mapped[list["ScenarioTranslation"]] = relationship(back_populates="scenario")
+
+
+class ScenarioTranslation(Base):
+    """
+    Guarda las traducciones de cada escenario a otras lenguas.
+    
+    La columna 'data' tiene exactamente la misma forma que Scenario.data
+    (el mismo JSON con title, description, steps, etc.) — solo que
+    los textos están en otro idioma.
+    
+    Campos no textuales como emoji, color, xp, difficulty NO se traducen;
+    esos los sigue leyendo el cliente desde la tabla scenarios original.
+    """
+    __tablename__ = "scenario_translations"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    
+    # Qué escenario es este (referencia a scenarios.id)
+    scenario_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("scenarios.id"), nullable=False
+    )
+    
+    # Código del idioma: 'es_coloquial', 'nah', 'mix', 'zap', 'oto', 'tzo', 'tze'
+    lang: Mapped[str] = mapped_column(String(20), nullable=False)
+    
+    # El JSON traducido (misma estructura que Scenario.data)
+    data: Mapped[str] = mapped_column(Text, nullable=False)
+    
+    # False = generado por IA, True = revisado por hablante nativo
+    # Útil para saber qué traducciones ya son confiables
+    is_reviewed: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_now, onupdate=_now
+    )
+
+    # Relación inversa opcional — para hacer scenario.translations desde Python
+    scenario: Mapped["Scenario"] = relationship(back_populates="translations")
+
+    # Restricción: no puede haber dos traducciones del mismo escenario al mismo idioma
+    __table_args__ = (
+        UniqueConstraint("scenario_id", "lang", name="uq_scenario_lang"),
+    )
