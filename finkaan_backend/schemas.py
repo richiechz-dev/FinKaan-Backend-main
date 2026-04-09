@@ -107,6 +107,13 @@ class ScenarioOut(BaseModel):
     order_index: int
     data: dict
 
+class ScenarioResponseIn(BaseModel):
+    narrativa: str
+    question: str
+    respuesta: str
+    delta: int
+    is_good: bool
+    is_used: bool = True
 
 # ─── Sync Info (nuevo) ────────────────────────────────────────────────────────
 
