@@ -113,7 +113,6 @@ class ScenarioResponseIn(BaseModel):
     respuesta: str
     delta: int
     is_good: bool
-    is_used: bool = True
 
 # ─── Sync Info (nuevo) ────────────────────────────────────────────────────────
 

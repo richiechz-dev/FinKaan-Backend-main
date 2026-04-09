@@ -158,14 +158,15 @@ class Feedback(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     sintesis: Mapped[str] = mapped_column(String, nullable=False)
+    fb = Mapped[str] = mapped_column(String, nullable=False)
 
     user: Mapped["User"] = relationship("User", back_populates="feedback")
 
 class Answers(Base):
     id = Mapped[int] = mapped_column(Integer, primary_key=True)
     user_id = Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-    narrtiva_id = Mapped[int] = mapped_column(Integer, nullable=False)
-    narrtiva = Mapped[str] = mapped_column(String, nullable=False)
+    narrativa_id = Mapped[int] = mapped_column(Integer, nullable=False)
+    narrativa = Mapped[str] = mapped_column(String, nullable=False)
     question = Mapped[str] = mapped_column(String, nullable=False)
     respuesta = Mapped[str] = mapped_column(String, nullable=False)
     delta = Mapped[int] = mapped_column(Integer, nullable=False)

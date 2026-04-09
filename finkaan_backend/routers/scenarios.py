@@ -78,3 +78,43 @@ def save_scenario_response(
     db.commit()
     db.refresh(scenario_response)
     return schemas.ScenarioResponseOut(id=scenario_response.id, scenario_id=scenario_id, response=response)
+
+
+# Guardar la respuesta del escenario para el usuario
+@router.post("/{scenario_id}/responses")
+def save_scenario_response(
+    scenario_id: int,
+    response: schemas.ScenarioResponseIn,
+    user: models.User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Guarda la respuesta del escenario para el usuario."""
+    row = db.query(models.Scenario).filter(
+        models.Scenario.id == scenario_id,
+        models.Scenario.is_active == True,
+    ).first()
+    if not row:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Escenario no encontrado.")
+
+    # exists_ans = db.query(models.ScenarioResponse).filter(
+    #     models.ScenarioResponse.user_id == user.id,
+    #     models.ScenarioResponse.scenario_id == scenario_id,
+    #     models.ScenarioResponse.is_used == True
+    # ).first()
+
+    # if exists_ans:
+    #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Respuesta ya analizada")
+
+    answers_response = models.Answers(
+        user_id=user.id,
+        narrativa_id=scenario_id,
+        narrativa = response.narrativa,
+        question = response.question,
+        respuesta = response.respuesta,
+        delta = response.delta,
+        isGood = response.is_good
+    )
+    db.add(answers_response)
+    db.commit()
+    db.refresh(answers_response)
+    return {"message": "Respuesta guardada correctamente"}    
