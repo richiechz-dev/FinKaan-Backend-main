@@ -157,7 +157,7 @@ class Scenario(Base):
 class Feedback(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-    sintesis = Mapped[str] = mapped_column(String, nullable=False)
+    sintesis: Mapped[str] = mapped_column(String, nullable=False)
 
     user: Mapped["User"] = relationship("User", back_populates="feedback")
 
