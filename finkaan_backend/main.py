@@ -67,3 +67,4 @@ app.include_router(analysis.router)
 @app.get("/health", tags=["health"])
 def health():
     return {"status": "ok", "redis": redis_ping()}
+# prueba 
