@@ -351,7 +351,7 @@ async def _call_claude(message: str, client: httpx.AsyncClient) -> dict[str, Any
         json={
             "model": ANTHROPIC_MODEL,
             "max_tokens": 2000,
-            "system": _WIKI_PROMPT,
+            "system": _SYSTEM_PROMPT,
             "messages": [{"role": "user", "content": message}],
         },
     )
@@ -390,7 +390,7 @@ async def _call_gemini(message: str) -> dict[str, Any]:
 
     model = genai.GenerativeModel(
         model_name=GEMINI_MODEL,
-        system_instruction=_WIKI_PROMPT,
+        system_instruction=_SYSTEM_PROMPT,
         generation_config=gen_config,
     )
 
