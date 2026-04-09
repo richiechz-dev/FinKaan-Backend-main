@@ -44,10 +44,20 @@ class User(Base):
         "SocialProvider", back_populates="user", cascade="all, delete-orphan"
     )
 
+    # Realción con Feedback
+    feedback: Mapped[list["Feedback"]] = relationship(
+        "Feedback", back_populates="user", cascade="all, delete-orphan"
+    )
+
+    # Relación con Answers 
+    answers: Mapped[list["Answers"]] = relationship(
+        "Answers", back_populates="user", cascade="all, delete-orphan"  
+    )
+
 
 # ─── UserProgress ─────────────────────────────────────────────────────────────
 
-class UserProgress(Base):
+class UserProgress(Base): 
     __tablename__ = "user_progress"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -142,3 +152,24 @@ class Scenario(Base):
     data: Mapped[str] = mapped_column(Text, nullable=False)   # JSON serializado
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)
+
+
+class Feedback(Base):
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    sintesis = Mapped[str] = mapped_column(String, nullable=False)
+
+    user: Mapped["User"] = relationship("User", back_populates="feedback")
+
+class Answers(Base):
+    id = Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id = Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    narrtiva_id = Mapped[int] = mapped_column(Integer, nullable=False)
+    narrtiva = Mapped[str] = mapped_column(String, nullable=False)
+    question = Mapped[str] = mapped_column(String, nullable=False)
+    respuesta = Mapped[str] = mapped_column(String, nullable=False)
+    delta = Mapped[int] = mapped_column(Integer, nullable=False)
+    isGood = Mapped[bool] = mapped_column(Boolean, nullable=False)
+    isUsed = Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    
+    user: Mapped["User"] = relationship("User", back_populates="answers")
