@@ -25,7 +25,7 @@ from finkaan_backend.database import SessionLocal, engine, Base
 from finkaan_backend.models import Scenario
 
 # JSON de escenarios por defecto (junto a este script)
-DEFAULT_JSON = Path(__file__).parent / "scenarios_seed.json"
+DEFAULT_JSON = Path(__file__).parent / "scenarios_10_levels.json"
 
 
 def seed(json_path: Path) -> None:

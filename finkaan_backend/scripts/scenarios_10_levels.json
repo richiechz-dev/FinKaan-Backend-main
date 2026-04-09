@@ -1,0 +1,1118 @@
+[
+  {
+    "id": 1,
+    "title": "Tu primer ingreso",
+    "emoji": "💸",
+    "description": "Ingresos iniciales · Hábitos de arranque. Recibes dinero por primera vez y decides qué haces antes de tocarlo.",
+    "difficulty": "Fácil",
+    "color": "green",
+    "xp": 120,
+    "concepts": [
+      "ingresos",
+      "presupuesto",
+      "ahorro",
+      "gastos fijos"
+    ],
+    "categories": [
+      "ahorro",
+      "presupuesto",
+      "banco_azteca"
+    ],
+    "steps": [
+      {
+        "narrative": "Te cae tu primer pago y no quieres quedarte sin dinero antes de la quincena.",
+        "question": "¿Qué haces primero?",
+        "aiGood": "Separar el ahorro primero ayuda a construir disciplina y te deja ver cómo administras tu dinero.",
+        "aiBad": "Gastar sin orden suele mostrar que el dinero entra, pero no se retiene.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aparto una parte para ahorro",
+            "delta": 40,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Lo gasto todo y luego veo",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Lo dejo en efectivo",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Pido un adelanto por si acaso",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Ya separaste una parte del dinero y decides dónde guardarla.",
+        "question": "¿Dónde dejas ese ahorro?",
+        "aiGood": "Un lugar separado reduce la tentación de gastar lo que ya apartaste.",
+        "aiBad": "Si todo se mezcla, después es difícil saber qué era ahorro y qué era gasto.",
+        "options": [
+          {
+            "id": "a",
+            "text": "En una cuenta separada",
+            "delta": 40,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "En la misma cuenta de uso diario",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "En una cartera",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Lo presto a alguien",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "La quincena alcanza o no",
+    "emoji": "🧾",
+    "description": "Gastos fijos · Liquidez. Tu dinero ya tiene compromisos y debes decidir qué va primero.",
+    "difficulty": "Fácil",
+    "color": "amber",
+    "xp": 140,
+    "concepts": [
+      "gastos fijos",
+      "liquidez",
+      "renta",
+      "transporte"
+    ],
+    "categories": [
+      "presupuesto",
+      "pagos",
+      "liquidez"
+    ],
+    "steps": [
+      {
+        "narrative": "Te acuerdas de renta, transporte y comida antes de comprar cualquier otra cosa.",
+        "question": "¿Qué priorizas?",
+        "aiGood": "Poner primero lo necesario revela orden y capacidad de planeación.",
+        "aiBad": "Si los gustos van primero, el mes se complica rápido.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pago mis gastos fijos primero",
+            "delta": 50,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Compro cosas impulsivas",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Espero a ver qué pasa",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Uso todo en salidas",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Banco Azteca te ofrece manejar pagos desde su app y te preguntas si te ayuda o te distrae.",
+        "question": "¿Cómo usas esa herramienta?",
+        "aiGood": "Usar herramientas de pago con control puede ayudarte a no atrasarte.",
+        "aiBad": "La comodidad sin seguimiento termina ocultando el gasto real.",
+        "options": [
+          {
+            "id": "a",
+            "text": "La uso para ordenar mis pagos",
+            "delta": 50,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Solo reviso cuando ya debo",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "La ignoro por completo",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "La uso para gastar más",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Emergencia pequeña",
+    "emoji": "🛠️",
+    "description": "Imprevistos · Fondo de emergencia. Surge un gasto urgente y quieres ver si reaccionas con calma o con deuda.",
+    "difficulty": "Fácil",
+    "color": "green",
+    "xp": 150,
+    "concepts": [
+      "imprevistos",
+      "fondo de emergencia",
+      "liquidez",
+      "urgencias"
+    ],
+    "categories": [
+      "ahorro",
+      "emergencia",
+      "prestamos"
+    ],
+    "steps": [
+      {
+        "narrative": "Se rompe algo que necesitas usar diario y el gasto no estaba en tu plan.",
+        "question": "¿Cómo respondes?",
+        "aiGood": "Un fondo de emergencia te dice si planeas o si improvisas con deuda.",
+        "aiBad": "Pagar con deuda cara por cualquier sorpresa suele empeorar el problema.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Uso un fondo para emergencias",
+            "delta": 50,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Pido préstamo rápido",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Lo cargo a crédito sin revisar",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Lo ignoro",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Banco Azteca te ofrece una salida rápida para cubrir el gasto.",
+        "question": "¿Qué revisas antes de aceptar?",
+        "aiGood": "Revisar costo total y plazo muestra si entiendes el peso real de la urgencia.",
+        "aiBad": "Aceptar sin leer puede decir más de tu ansiedad que de tu capacidad financiera.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reviso el costo total",
+            "delta": 50,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Acepto por rapidez",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Solo miro la mensualidad",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "No pregunto nada",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Después del imprevisto, necesitas volver a estabilizarte.",
+        "question": "¿Qué haces para recuperarte?",
+        "aiGood": "Recuperarte sin prisas ayuda a que el siguiente imprevisto no te rompa.",
+        "aiBad": "Dejar el hueco abierto te hace más vulnerable a la próxima sorpresa.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Rearmo mi fondo poco a poco",
+            "delta": 50,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Lo dejo así",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Tomo otra deuda",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Espero a que se resuelva solo",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Primer crédito",
+    "emoji": "💳",
+    "description": "Crédito básico · Historial. Te ofrecen una tarjeta o línea de crédito y debes mostrar cómo la manejarías.",
+    "difficulty": "Fácil",
+    "color": "amber",
+    "xp": 170,
+    "concepts": [
+      "credito",
+      "tarjeta",
+      "pagos",
+      "historial crediticio"
+    ],
+    "categories": [
+      "credito",
+      "tarjeta",
+      "banco_azteca"
+    ],
+    "steps": [
+      {
+        "narrative": "Te aprueban una tarjeta y quieres evitar caer en intereses innecesarios.",
+        "question": "¿Cómo la usarías?",
+        "aiGood": "Usarla con control ayuda a conocer tu relación real con el crédito.",
+        "aiBad": "Usarla sin orden revela una relación impulsiva con la deuda.",
+        "options": [
+          {
+            "id": "a",
+            "text": "La uso y pago el total",
+            "delta": 60,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Pago solo el mínimo",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "La uso para todo sin medir",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "No la reviso nunca",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Llega tu corte y Banco Azteca te recuerda el pago.",
+        "question": "¿Qué haces al ver la fecha límite?",
+        "aiGood": "Pagar a tiempo muestra disciplina y evita costo extra.",
+        "aiBad": "Olvidar fechas suele convertirse en intereses y estrés.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pongo recordatorio y pago puntual",
+            "delta": 60,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Espero al último día",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Pago cuando me acuerde",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "No pago este mes",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Quieres seguir teniendo acceso a crédito sin complicarte después.",
+        "question": "¿Qué hábito ayuda más?",
+        "aiGood": "Un buen historial se construye con constancia, no con suerte.",
+        "aiBad": "El crédito mal usado pesa más de lo que parece.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pagar siempre puntual",
+            "delta": 50,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Solo pagar cuando sobra",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Acumular compras",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Retirar efectivo",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Promoción y compra impulsiva",
+    "emoji": "🛍️",
+    "description": "Consumo · Descuento · Presión social. Te enfrentan a una oferta y necesitas mostrar si compras por impulso o por necesidad.",
+    "difficulty": "Fácil",
+    "color": "green",
+    "xp": 190,
+    "concepts": [
+      "consumo",
+      "promociones",
+      "descuento",
+      "compra impulsiva"
+    ],
+    "categories": [
+      "consumo",
+      "tarjeta",
+      "promociones"
+    ],
+    "steps": [
+      {
+        "narrative": "Ves una promoción fuerte en una tienda del grupo y te preguntas si vale la pena.",
+        "question": "¿Qué haces antes de comprar?",
+        "aiGood": "Comparar antes de comprar revela si eres práctico o impulsivo.",
+        "aiBad": "Comprar por emoción suele mostrar que la oferta te controla a ti.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Comparo si realmente lo necesito",
+            "delta": 60,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Compro porque está barato",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Lo cargo a crédito",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Me llevo dos por si acaso",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Tus amigos dicen que “aprovechar” es comprar aunque no hiciera falta.",
+        "question": "¿Cómo respondes?",
+        "aiGood": "Decir no a una compra que no necesitas también es educación financiera.",
+        "aiBad": "La presión social puede hacer que gastes por encajar.",
+        "options": [
+          {
+            "id": "a",
+            "text": "No compro si no me hace falta",
+            "delta": 60,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Compro para no verme mal",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Lo pago después",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Pido dinero prestado",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Llegas a caja y aparece la opción de meses sin intereses.",
+        "question": "¿Qué revisas?",
+        "aiGood": "Ver si cabe en tu flujo y no solo en tu emoción es lo correcto.",
+        "aiBad": "Las mensualidades pueden esconder compras que no necesitas.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Si de verdad lo puedo pagar",
+            "delta": 70,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Solo que la mensualidad sea baja",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Si me alcanza hoy y luego veo",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Si me da puntos",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Atraso y cobranza",
+    "emoji": "📞",
+    "description": "Cobranza · Comunicación. Un atraso pequeño puede decir mucho sobre cómo reaccionas ante presión financiera.",
+    "difficulty": "Medio",
+    "color": "stone",
+    "xp": 210,
+    "concepts": [
+      "cobranza",
+      "atraso",
+      "renegociacion",
+      "presion financiera"
+    ],
+    "categories": [
+      "credito",
+      "cobranza",
+      "banco_azteca"
+    ],
+    "steps": [
+      {
+        "narrative": "Te atrasaste unos días y recibes un recordatorio de pago.",
+        "question": "¿Qué haces?",
+        "aiGood": "Responder rápido y con calma suele evitar que el problema crezca.",
+        "aiBad": "Ocultarte ante el atraso casi siempre empeora la presión.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Contesto y busco solución",
+            "delta": 70,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Lo ignoro",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Me enojo y cuelgo",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Cambio de número",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Banco Azteca te da una opción para ponerte al corriente.",
+        "question": "¿Qué evalúas?",
+        "aiGood": "Negociar con números y plazos te ayuda a recuperar control.",
+        "aiBad": "Tomar una salida sin leer te deja igual o peor.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reviso el plan de pago",
+            "delta": 70,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Acepto cualquier cosa",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Pido otra deuda",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "No respondo más",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Te das cuenta de que el atraso viene de varios gastos pequeños juntos.",
+        "question": "¿Qué aprendes?",
+        "aiGood": "Ver el patrón completo te enseña más que culpar a un solo gasto.",
+        "aiBad": "Si no identificas el origen, el atraso se repite.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que debo controlar mis fugas",
+            "delta": 70,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Que no me importa tanto",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Que siempre alguien me ayudará",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Que debo gastar menos en todo",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Ahorro y meta",
+    "emoji": "🎯",
+    "description": "Meta financiera · Disciplina. Empiezas a ver si sí puedes sostener una meta a mediano plazo.",
+    "difficulty": "Medio",
+    "color": "accent",
+    "xp": 230,
+    "concepts": [
+      "meta financiera",
+      "disciplina",
+      "ahorro",
+      "plan"
+    ],
+    "categories": [
+      "ahorro",
+      "metas",
+      "banco_azteca"
+    ],
+    "steps": [
+      {
+        "narrative": "Ya quieres dejar de vivir al día y empezar a juntar dinero con intención.",
+        "question": "¿Qué haces con tu meta?",
+        "aiGood": "Ponerle nombre y monto a una meta la vuelve real.",
+        "aiBad": "Una meta vaga casi nunca se cumple.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Defino una meta concreta",
+            "delta": 70,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Espero a ver si sobra",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Cambio de meta cada semana",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "No pongo fecha",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Te ofrecen una forma de ahorro automática y quieres saber si te conviene.",
+        "question": "¿Qué prefieres?",
+        "aiGood": "Automatizar ayuda a sostener la constancia.",
+        "aiBad": "Depender de la fuerza de voluntad suele fallar.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ahorro automático cada quincena",
+            "delta": 80,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Ahorro si me acuerdo",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Ahorro cuando ya no queda nada",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "No ahorro",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Quieres saber si tu meta sí es posible sin ahorcarte.",
+        "question": "¿Cómo ajustas tu plan?",
+        "aiGood": "Dividir la meta en partes la hace más alcanzable.",
+        "aiBad": "Querer todo de golpe suele llevar al abandono.",
+        "options": [
+          {
+            "id": "a",
+            "text": "La divido en pasos pequeños",
+            "delta": 80,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "La dejo para después",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "La financio toda",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "La cambio por otra más cara",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Tu estilo de consumo",
+    "emoji": "🛒",
+    "description": "Consumo · Decisiones cotidianas. Lo que compras y cómo lo compras empieza a revelar tu conducta real.",
+    "difficulty": "Medio",
+    "color": "green",
+    "xp": 240,
+    "concepts": [
+      "consumo",
+      "compras",
+      "presion social",
+      "planificacion"
+    ],
+    "categories": [
+      "consumo",
+      "pagos",
+      "tarjeta"
+    ],
+    "steps": [
+      {
+        "narrative": "Ves algo que quieres, pero no estaba en tu plan.",
+        "question": "¿Qué haces?",
+        "aiGood": "Esperar antes de comprar ayuda a distinguir deseo de necesidad.",
+        "aiBad": "Comprar por impulso deja ver una relación débil con el dinero.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Espero antes de comprar",
+            "delta": 80,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Lo compro de inmediato",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Lo cargo a crédito",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Pido prestado",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Hay una promoción y sientes presión de aprovecharla.",
+        "question": "¿Qué revisas?",
+        "aiGood": "Preguntarte si realmente lo necesitas es una señal de madurez financiera.",
+        "aiBad": "La urgencia de “aprovechar” puede ser la trampa principal.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Si lo necesito de verdad",
+            "delta": 80,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Si se ve bien",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Si todos lo compran",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Si me alcanza hoy",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Te ofrecen pagar en partes sin intereses aparente.",
+        "question": "¿Qué haces antes de aceptar?",
+        "aiGood": "Revisar si cabe en tu flujo evita sorpresas posteriores.",
+        "aiBad": "Aceptar cuotas por costumbre puede esconder problemas de fondo.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reviso si cabe en mi presupuesto",
+            "delta": 80,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Acepto porque suena cómodo",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "No reviso el total",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Lo pago con otra deuda",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Relación con crédito",
+    "emoji": "🧠",
+    "description": "Crédito · Comportamiento. Aquí se nota si usas deuda como herramienta o como escape.",
+    "difficulty": "Medio",
+    "color": "stone",
+    "xp": 260,
+    "concepts": [
+      "credito",
+      "deuda",
+      "intereses",
+      "responsabilidad"
+    ],
+    "categories": [
+      "credito",
+      "prestamos",
+      "banco_azteca"
+    ],
+    "steps": [
+      {
+        "narrative": "Necesitas dinero extra y aparece una opción de préstamo rápido.",
+        "question": "¿Qué evalúas primero?",
+        "aiGood": "Pensar antes de pedir revela si usas la deuda con cabeza.",
+        "aiBad": "La prisa por resolver puede llevarte a costos innecesarios.",
+        "options": [
+          {
+            "id": "a",
+            "text": "El costo total",
+            "delta": 90,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Solo la velocidad",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Solo la mensualidad",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Que me lo presten ya",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "La opción de Banco Azteca suena fácil, pero requiere leer detalles.",
+        "question": "¿Qué haces con el contrato?",
+        "aiGood": "Leer el contrato te protege de costos invisibles.",
+        "aiBad": "Firmar por impulso suele ser una mala señal de control financiero.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Leo el contrato completo",
+            "delta": 90,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Firmo sin leer",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Solo pregunto la mensualidad",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Me guío por la promo",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Quieres saber si eres de los que pueden sostener deuda sin ahogarse.",
+        "question": "¿Qué hábito te ayuda más?",
+        "aiGood": "Controlar pagos y fechas hace que el crédito trabaje a tu favor.",
+        "aiBad": "Desordenarte con el crédito suele costar más de lo que se ve.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pagar puntual y medir el uso",
+            "delta": 80,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Pagar cuando me acuerde",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Solo cubrir mínimos",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Tener varias deudas juntas",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Cierre de hábitos",
+    "emoji": "🎯",
+    "description": "Diagnóstico final · Educación personalizada. Aquí revisas cómo reaccionas y qué tan listo estás para avanzar.",
+    "difficulty": "Medio",
+    "color": "accent",
+    "xp": 280,
+    "concepts": [
+      "diagnostico",
+      "habitos",
+      "aprendizaje",
+      "planeacion"
+    ],
+    "categories": [
+      "diagnostico",
+      "ahorro",
+      "credito"
+    ],
+    "steps": [
+      {
+        "narrative": "Ya viste varias situaciones y ahora piensas en tu patrón real.",
+        "question": "¿Qué describe mejor tu forma de manejar dinero?",
+        "aiGood": "Reconocer tu patrón es el primer paso para aprender mejor.",
+        "aiBad": "Negarte a ver tus hábitos dificulta mejorar.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Planeo antes de gastar",
+            "delta": 90,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Improviso casi siempre",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Me cuesta ahorrar",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Uso crédito sin pensar",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Piensas en qué tipo de ayuda educativa te vendría mejor.",
+        "question": "¿Qué te gustaría mejorar primero?",
+        "aiGood": "Identificar tu necesidad real hace más útil la educación financiera.",
+        "aiBad": "Aprender sin contexto suele servir poco.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ahorrar mejor",
+            "delta": 90,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Gastar más rápido",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Pedir préstamos con facilidad",
+            "delta": -20,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "No cambiar nada",
+            "delta": 0,
+            "isGood": false
+          }
+        ]
+      },
+      {
+        "narrative": "Quieres saber si ya tienes bases para seguir aprendiendo.",
+        "question": "¿Qué haces si algo no te alcanza?",
+        "aiGood": "Buscar opciones antes de endeudarte muestra madurez.",
+        "aiBad": "Cubrir todo con deuda suele esconder una estrategia débil.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Busco ajustar el plan",
+            "delta": 100,
+            "isGood": true
+          },
+          {
+            "id": "b",
+            "text": "Lo pago con deuda",
+            "delta": 0,
+            "isGood": false
+          },
+          {
+            "id": "c",
+            "text": "Lo dejo para después",
+            "delta": -10,
+            "isGood": false
+          },
+          {
+            "id": "d",
+            "text": "Lo ignoro",
+            "delta": -20,
+            "isGood": false
+          }
+        ]
+      }
+    ]
+  }
+]
