@@ -1,6 +1,7 @@
 """
 main.py — Punto de entrada de FinKaan Backend
 """
+
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -8,13 +9,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 
 from .config import settings
-
-from .database import engine, Base
+from .database import Base, engine
 from .redis_client import ping as redis_ping
-from .routers import auth, users, scenarios, analysis
-
+from .routers import analysis, auth, scenarios, users
 
 # ─── Lifespan ─────────────────────────────────────────────────────────────────
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -44,6 +44,7 @@ app.add_middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)
 origins = [
     "https://finkaan.vercel.app",
     "https://finkaan-as1tpferh-kenais-projects-92e859d0.vercel.app",
+    "http://localhost:5948",
 ]
 
 app.add_middleware(
@@ -64,7 +65,10 @@ app.include_router(analysis.router)
 
 # ─── Health check ─────────────────────────────────────────────────────────────
 
+
 @app.get("/health", tags=["health"])
 def health():
     return {"status": "ok", "redis": redis_ping()}
-# prueba 
+
+
+# prueba
