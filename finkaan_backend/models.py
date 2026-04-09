@@ -152,7 +152,11 @@ class Scenario(Base):
     data: Mapped[str] = mapped_column(Text, nullable=False)   # JSON serializado
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)
-
+    translations: Mapped[list["ScenarioTranslation"]] = relationship(
+        "ScenarioTranslation",
+        back_populates="scenario",
+        cascade="all, delete-orphan"
+    )
 
 class Feedback(Base):
     __tablename__ = "feed_back"
@@ -177,8 +181,6 @@ class Answers(Base):
     
     user: Mapped["User"] = relationship("User", back_populates="answers")
     
-    # Relación opcional — para hacer scenario
-    translations: Mapped[list["ScenarioTranslation"]] = relationship(back_populates="scenario")
 
 
 class ScenarioTranslation(Base):
@@ -214,6 +216,7 @@ class ScenarioTranslation(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_now, onupdate=_now
     )
+    
 
     # Relación inversa opcional — para hacer scenario.translations desde Python
     scenario: Mapped["Scenario"] = relationship(back_populates="translations")
@@ -221,4 +224,9 @@ class ScenarioTranslation(Base):
     # Restricción: no puede haber dos traducciones del mismo escenario al mismo idioma
     __table_args__ = (
         UniqueConstraint("scenario_id", "lang", name="uq_scenario_lang"),
+    )
+
+    scenario: Mapped["Scenario"] = relationship(
+        "Scenario",
+        back_populates="translations"
     )
