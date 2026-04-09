@@ -149,7 +149,7 @@ async def build_retro(db: Session, user_id: int, user_context: dict[str, Any]):
 
     for i, a in enumerate(answers, 1):
         lines.append(f"{i}. {a['pregunta']}")
-        lines.append(f"   → {a['respuesta']} ({'✓' if a['is_good'] else '✗'}) | delta: {a['delta']}")
+        lines.append(f"   → {a['respuesta']} ({'✓' if a['is_good'] else '✗'})")
         lines.append("")
 
     lines.append("Perfil del usuario:")
@@ -207,10 +207,9 @@ def get_answers(db: Session, user_id: int):
     answers = []
     for r in rows:
         answers.append({
-            "narrativa": r.narrtiva,
+            "narrativa": r.narrativa,
             "pregunta": r.question,
             "respuesta": r.respuesta,
-            "delta": r.delta,
             "is_good": r.isGood
         })
 

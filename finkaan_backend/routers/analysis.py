@@ -44,6 +44,12 @@ class UserContext(BaseModel):
     app_level: int = Field(ge=1, default=1)
     completed_count: int = Field(ge=0, default=0)
 
+class UserContextNew(BaseModel):
+    finance_level: str = "principiante"
+    situation: str = ""
+    goal: str = ""
+
+
 
 class BehavioralAnalysisRequest(BaseModel):
     decisions: list[ScenarioDecision]
@@ -63,7 +69,7 @@ class BehavioralAnalysisRequest(BaseModel):
 
 
 class NewBehavioralAnalysisRequest(BaseModel):
-    user_context: UserContext = UserContext()
+    user_context: UserContextNew = UserContextNew()
 
 
 @router.post("/behavioral_new")

@@ -54,7 +54,7 @@ def get_scenario(
     return schemas.ScenarioOut(id=row.id, order_index=row.order_index, data=json.loads(row.data))
 
 # Guardar la respuesta del escenario para el usuario
-@router.post("/{scenario_id}/responses")
+@router.post("/{scenario_id}/responsess")
 def save_scenario_response(
     scenario_id: int,
     response: schemas.ScenarioResponseIn,
@@ -89,12 +89,12 @@ def save_scenario_response(
     db: Session = Depends(get_db),
 ):
     """Guarda la respuesta del escenario para el usuario."""
-    row = db.query(models.Scenario).filter(
-        models.Scenario.id == scenario_id,
-        models.Scenario.is_active == True,
-    ).first()
-    if not row:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Escenario no encontrado.")
+    # row = db.query(models.Scenario).filter(
+    #     models.Scenario.id == scenario_id,
+    #     models.Scenario.is_active == True,
+    # ).first()
+    # if not row:
+    #     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Escenario no encontrado.")
 
     # exists_ans = db.query(models.ScenarioResponse).filter(
     #     models.ScenarioResponse.user_id == user.id,

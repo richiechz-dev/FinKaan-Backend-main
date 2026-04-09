@@ -67,10 +67,13 @@ def get_current_user(
     db: Session = Depends(get_db),
 ) -> models.User:
     token = credentials.credentials
-
-    # Verificar que el token no esté en la blacklist de Redis
-    if redis_client.exists(f"bl:{token}"):
-        raise CREDENTIALS_EXC
+    
+    try:
+        if redis_client.exists(f"bl:{token}"):
+            raise CREDENTIALS_EXC
+    except Exception:
+        # Redis no disponible → ignorar en desarrollo
+        pass
 
     user_id = _decode_token(token)
     user = db.get(models.User, user_id)
